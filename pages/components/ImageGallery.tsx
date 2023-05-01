@@ -22,11 +22,12 @@ export const ImageGallery = ({ images }: Props) => {
         axis="horizontal"
         showIndicators={false}
       >
-        {images.resources.map((p) => (
-          <div key={p.asset_id}>
-            <Image src={p.secure_url} alt="img" height={p.height} width={p.width} />
-          </div>
-        ))}
+        {images &&
+          images.resources.map((p) => (
+            <div key={p.asset_id}>
+              <Image src={p.secure_url} alt="img" height={p.height} width={p.width} />
+            </div>
+          ))}
       </Carousel>
     </Box>
   )

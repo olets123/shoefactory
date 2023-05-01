@@ -26,14 +26,16 @@ export const HomePage = (props: IHomeProps) => {
         mb={6}
       >
         <Box h="full" w="full" p={2} mt={20}>
-          <Image
-            key={props.jettegaarden.resources[10].asset_id}
-            width={600}
-            height={400}
-            src={props.jettegaarden.resources[10].secure_url}
-            sizes="100vw"
-            alt="sample-test"
-          />
+          {props.jettegaarden && (
+            <Image
+              key={props.jettegaarden.resources[10].asset_id}
+              width={600}
+              height={400}
+              src={props.jettegaarden.resources[10].secure_url}
+              sizes="100vw"
+              alt="sample-test"
+            />
+          )}
         </Box>
         {!isSmallDevice && (
           <Box display="flex" justifyContent="center" width="100%">
@@ -75,4 +77,4 @@ export const HomePage = (props: IHomeProps) => {
     </Box>
   )
 }
-export default Home
+export default HomePage

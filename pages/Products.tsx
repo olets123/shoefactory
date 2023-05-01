@@ -52,8 +52,8 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk }: IProductProps) =
       </HStack>
       <Box display="flex" flexDirection={isSmallDevice ? "row" : "column"} h="full" w="full">
         <PropertyCard
-          key={`${jettegaarden.resources[10].asset_id}`}
-          srcUrl={jettegaarden.resources[10].secure_url}
+          key={`${jettegaarden?.resources[10].asset_id}`}
+          srcUrl={jettegaarden?.resources[10].secure_url}
           heading="Jettegården"
           bodyText={textData.about.jetteGardDescription}
           buttons={
@@ -71,20 +71,20 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk }: IProductProps) =
           }
         />
         <PropertyCard
-          key={`${rambekk.resources[3].asset_id}`}
-          srcUrl={rambekk.resources[3].secure_url}
+          key={`${rambekk?.resources[3].asset_id}`}
+          srcUrl={rambekk?.resources[3].secure_url}
           heading="Rambekk"
           bodyText={textData.about.rambekkDescription}
           buttons={
             <Link
-              key={`link-key-${folder.folders[0].name}`}
+              key={`link-key-${folder?.folders[0].name}`}
               href={{
                 pathname: `/products/[id]`,
-                query: { id: `${folder.folders[0].name}` },
+                query: { id: `${folder?.folders[0].name}` },
               }}
             >
               <Button variant="outline" sx={{ mr: 2 }} fontFamily={"'Albert Sans', sans-serif"}>
-                Les mer om {transformName(folder.folders[0].name)}
+                Les mer om {transformName(folder?.folders[0].name)}
               </Button>
             </Link>
           }

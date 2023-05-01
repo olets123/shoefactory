@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from "next"
 import { Box, Button, Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react"
 import { search } from "../api/cloudinary"
 import { IResource } from ".."
@@ -19,7 +19,7 @@ type Params = {
   id: string
 }
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+/* export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const products = [ProductsName.Jettegården, ProductsName.Rambekk]
 
   const paths = products.map((product) => ({
@@ -28,11 +28,11 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: true,
   }
-}
+} */
 
-export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<Props, Params> = async ({ params }) => {
   const id = params ? params.id : ""
 
   const images = await search({

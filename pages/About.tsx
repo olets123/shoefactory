@@ -36,7 +36,7 @@ export const AboutPage = (props: IAboutProps) => {
           width={isSmallDevice ? 600 : "full"}
           p={2}
         >
-          {props.history.resources && (
+          {props.history && props.history.resources && (
             <Image
               src={props.history.resources[0].secure_url}
               width={props.history.resources[0].width}
