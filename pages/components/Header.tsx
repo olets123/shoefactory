@@ -40,29 +40,5 @@ export const Header = () => {
       </Heading>
     </Box>
   )
-  /*  : (
-  <Box
-      display="flex"
-      flexDirection="row"
-      justifyContent="center"
-      height={50}
-      width="100%"
-      background="white"
-      pt={2}
-      sx={{ position: "fixed", top: 0, zIndex: 999 }}
-    >
-      <Link color="white" onClick={() => onClickScroll("home")} sx={{ mr: 2 }}>
-        Home
-      </Link>
-      <Link color="white" onClick={() => onClickScroll("about")} sx={{ mr: 2 }}>
-        About
-      </Link>
-      <Link color="white" onClick={() => onClickScroll("products")} sx={{ mr: 2 }}>
-        Products
-      </Link>
-      <Link color="white" onClick={() => onClickScroll("contact")} sx={{ mr: 2 }}>
-        Contact
-      </Link>
-    </Box>
-  ) */
 }
+export default Header

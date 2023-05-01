@@ -10,3 +10,4 @@ export const Main: React.FC<MainProps> = ({ children }) => (
     {children}
   </VStack>
 )
+export default Main

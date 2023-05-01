@@ -71,3 +71,4 @@ export const AboutPage = (props: IAboutProps) => {
     </Box>
   )
 }
+export default AboutPage

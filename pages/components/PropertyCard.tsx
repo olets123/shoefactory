@@ -28,3 +28,4 @@ export const PropertyCard = ({ srcUrl, heading, bodyText, buttons }: IPropertyCa
     </Card>
   )
 }
+export default PropertyCard

@@ -1,6 +1,6 @@
 import { Box, Button, Heading, useMediaQuery, VStack } from "@chakra-ui/react"
 import Image from "next/image"
-import { Folder, IResource } from "."
+import Home, { Folder, IResource } from "."
 import { onClickScroll } from "./components/Header"
 
 export interface IHomeProps {
@@ -75,3 +75,4 @@ export const HomePage = (props: IHomeProps) => {
     </Box>
   )
 }
+export default Home
