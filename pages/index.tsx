@@ -1,6 +1,5 @@
 import { VStack } from "@chakra-ui/react"
-import { GetStaticProps } from "next"
-import React from "react"
+import { GetServerSideProps } from "next"
 import { AboutPage } from "./About"
 import { folders, search } from "./api/cloudinary"
 import { Footer } from "./components/Footer"
@@ -37,7 +36,7 @@ export interface FolderData {
   path: string
 }
 
-export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
+export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
   // const results = await resources()
   const imageFolders = await folders()
   const rambekkImgs = await search({
@@ -56,7 +55,7 @@ export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   }
 }
 
-export const Home: React.FC<IHomeProps> = ({ jettegaarden, rambekk, history, folder }) => {
+export const Home = ({ jettegaarden, rambekk, history, folder }: IHomeProps) => {
   return (
     <VStack>
       <VStack height="full">

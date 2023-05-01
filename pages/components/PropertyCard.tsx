@@ -1,6 +1,5 @@
 import { Card, CardBody, CardFooter, Heading, Stack, Divider, ButtonGroup, Text } from "@chakra-ui/react"
 import Image from "next/image"
-import React from "react"
 
 interface IPropertyCardProps {
   srcUrl: string
