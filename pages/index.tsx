@@ -1,4 +1,4 @@
-import { Box, VStack } from "@chakra-ui/react"
+import { VStack } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
 import { HistoryPage } from "./History"
 import { folders, search } from "./api/cloudinary"
@@ -6,7 +6,6 @@ import { Footer } from "./components/Footer"
 import { HomePage } from "./Home"
 import { ProductsPage } from "./Products"
 import { AboutUsPage } from "./AboutUs"
-import Image from "next/image"
 
 export interface IResource {
   resources: IAsset[]

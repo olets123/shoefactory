@@ -34,7 +34,7 @@ export const HomePage = (props: HomePageProps) => {
       >
         <Box w="full" display="flex" justifyContent="flex-end" p={2} mb={6}>
           <Image
-            src={props.frontPageImages.resources[0]?.secure_url}
+            src={props.frontPageImages?.resources[0]?.secure_url}
             alt="Cartoon graduates jump with happiness"
             quality="100"
             priority
@@ -42,8 +42,8 @@ export const HomePage = (props: HomePageProps) => {
             // style={{ zIndex: -999 }}
             sizes="100vw"
             style={imageStyle}
-            width={props.frontPageImages.resources[0]?.width}
-            height={props.frontPageImages.resources[0]?.height}
+            width={props.frontPageImages?.resources[0]?.width}
+            height={props.frontPageImages?.resources[0]?.height}
           />
           <Heading
             as="h1"
