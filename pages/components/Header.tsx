@@ -33,7 +33,7 @@ export const Header = () => {
         size="2xl"
         noOfLines={1}
         color="gray.900"
-        fontFamily={"'Albert Sans', sans-serif"}
+        fontFamily={"'Albert Sans', serif"}
         onClick={() => onClickScroll("home")}
       >
         Gjøvik skofabrikk

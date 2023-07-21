@@ -27,7 +27,7 @@ export const currentFolder = async () => {
     return response.data
 }
 
-export async function search(options = {}) {
+export async function search(options = {}): Promise<IResource> {
     const params: any = {
       ...options
     }

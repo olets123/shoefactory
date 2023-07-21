@@ -9,7 +9,7 @@ export type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <VStack display="flex" flexDirection="column" h="full" w="full">
-      <Header />
+      {/* <Header /> */}
       <Main>{children}</Main>
     </VStack>
   )

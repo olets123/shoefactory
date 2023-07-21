@@ -1,10 +1,12 @@
-import { VStack } from "@chakra-ui/react"
+import { Box, VStack } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
-import { AboutPage } from "./About"
+import { HistoryPage } from "./History"
 import { folders, search } from "./api/cloudinary"
 import { Footer } from "./components/Footer"
-import { HomePage, IHomeProps } from "./Home"
+import { HomePage } from "./Home"
 import { ProductsPage } from "./Products"
+import { AboutUsPage } from "./AboutUs"
+import Image from "next/image"
 
 export interface IResource {
   resources: IAsset[]
@@ -36,8 +38,16 @@ export interface FolderData {
   path: string
 }
 
+export interface IHomeProps {
+  jettegaarden: IResource
+  rambekk: IResource
+  history: IResource
+  storgata: IResource
+  frontPageImages: IResource
+  folder: Folder
+}
+
 export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
-  // const results = await resources()
   const imageFolders = await folders()
   const rambekkImgs = await search({
     expression: `folder="shoefactory/building1"`,
@@ -46,28 +56,46 @@ export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
     expression: `folder="shoefactory/jettegaarden"`,
   })
 
+  const storgataImgs = await search({
+    expression: `folder="shoefactory/storgata"`,
+  })
+
   const historyImgs = await search({
     expression: `folder="shoefactory/history"`,
   })
 
+  const homeImgs = await search({
+    expression: `folder="shoefactory/frontpage"`,
+  })
+
   return {
-    props: { jettegaarden: jetteGaardenImgs, rambekk: rambekkImgs, history: historyImgs, folder: imageFolders },
+    props: {
+      jettegaarden: jetteGaardenImgs,
+      rambekk: rambekkImgs,
+      storgata: storgataImgs,
+      history: historyImgs,
+      folder: imageFolders,
+      frontPageImages: homeImgs,
+    },
   }
 }
 
-export const Home = ({ jettegaarden, rambekk, history, folder }: IHomeProps) => {
+export const Home = ({ jettegaarden, rambekk, history, storgata, folder, frontPageImages }: IHomeProps) => {
   return (
-    <VStack>
-      <VStack height="full">
-        <HomePage jettegaarden={jettegaarden} rambekk={rambekk} folder={folder} history={history} />
+    <VStack display="flex" height="100%">
+      <VStack height={"100vh"} display="flex">
+        <HomePage frontPageImages={frontPageImages} />
       </VStack>
-      <VStack height={"full"}>
-        <AboutPage history={history} />
+      <VStack height={"100%"} display="flex">
+        <AboutUsPage />
       </VStack>
-      <VStack height="full">
-        <ProductsPage jettegaarden={jettegaarden} rambekk={rambekk} folder={folder} />
+      <VStack height={"100vh"} display="flex">
+        <HistoryPage history={history} />
       </VStack>
-      <VStack display="flex" width="100%" justifyContent="center" alignItems="flex-end">
+      <VStack height={"100%"}>
+        <ProductsPage jettegaarden={jettegaarden} rambekk={rambekk} storgata={storgata} folder={folder} />
+      </VStack>
+      <VStack position="relative" bottom={0} width="100%" height="100%">
         <Footer />
       </VStack>
     </VStack>

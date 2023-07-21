@@ -1,28 +1,30 @@
 import { Box, Button, Divider, HStack, Text, useMediaQuery, VStack } from "@chakra-ui/react"
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope } from "react-icons/fa"
 import { GrLocation } from "react-icons/gr"
+import { inter400 } from "../../styles/fonts"
 
 export const Footer = () => {
   const [isSmallDevice] = useMediaQuery("(min-width: 800px)")
 
   return (
-    <VStack display="flex" justifyContent="center" h={"250px"} width="100%">
+    <VStack display={"flex"} justifyContent="center" h={"250px"} width="100%" bgColor="white">
       <HStack w="full" mb={6}>
         <Divider variant="solid" orientation="horizontal" size="md" borderWidth="1px" borderColor="blackAlpha.200" />
       </HStack>
+
       <Box display="flex" justifyContent="center" alignItems="center">
         <Box display="flex" flexDirection={isSmallDevice ? "row" : "column"} width="100%" justifyContent="center">
           <HStack mr={4}>
             <GrLocation />
-            <Text fontFamily={"'Albert Sans', sans-serif"}>Storgata 14, 2815 Gjøvik</Text>
+            <Text fontFamily={inter400.style.fontFamily}>Storgata 14, 2815 Gjøvik</Text>
           </HStack>
           <HStack mr={4}>
             <FaPhoneAlt />
-            <Text fontFamily={"'Albert Sans', sans-serif"}>482 09 030</Text>
+            <Text fontFamily={inter400.style.fontFamily}>482 09 030</Text>
           </HStack>
           <HStack mr={4}>
             <FaEnvelope />
-            <Text fontFamily={"'Albert Sans', sans-serif"}>kirsten@gjoviksko.no</Text>
+            <Text fontFamily={inter400.style.fontFamily}>kirsten@gjoviksko.no</Text>
           </HStack>
         </Box>
       </Box>
@@ -31,7 +33,7 @@ export const Footer = () => {
           size={"sm"}
           variant="ghost"
           leftIcon={<FaFacebook />}
-          fontFamily={"'Albert Sans', sans-serif"}
+          fontFamily={inter400.style.fontFamily}
           onClick={() => window.open("https://www.facebook.com/Gjovik.Skofabrik", "_blank")}
         >
           Facebook
@@ -39,14 +41,14 @@ export const Footer = () => {
         <Button
           variant="ghost"
           size={"sm"}
-          fontFamily={"'Albert Sans', sans-serif"}
+          fontFamily={inter400.style.fontFamily}
           leftIcon={<FaInstagram />}
           onClick={() => window.open("https://www.instagram.com/gjovikskofabrik/", "_blank")}
         >
           Instagram
         </Button>
       </HStack>
-      <Text fontFamily={"'Albert Sans', sans-serif"} fontSize={12} color="gray.600">
+      <Text fontFamily={inter400.style.fontFamily} fontSize={12} color="gray.600">
         &copy; 2023 - made by @skogli20{" "}
       </Text>
     </VStack>
