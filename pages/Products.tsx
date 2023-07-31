@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, HStack, useMediaQuery, VStack } from "@chakra-ui/react"
+import { Box, Button, Divider, Heading, HStack, useMediaQuery } from "@chakra-ui/react"
 import Link from "next/link"
 import { Folder, IResource } from "."
 import { PropertyCard } from "./components/PropertyCard"
@@ -61,7 +61,7 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk, storgata }: IProdu
           key={`${jettegaarden?.resources[0].asset_id}`}
           srcUrl={jettegaarden?.resources[0].secure_url}
           heading="Jettegården"
-          bodyText={textData.about.jetteGardDescription}
+          bodyText={textData.about.jetteGaardenImageText}
           buttons={
             <Link
               key={`link-key-jettegaarden`}
@@ -71,7 +71,7 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk, storgata }: IProdu
               }}
             >
               <Button variant="outline" sx={{ mr: 2 }} fontFamily={inter400.style.fontFamily}>
-                Les mer om Jettegården
+                Les mer
               </Button>
             </Link>
           }
@@ -80,7 +80,7 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk, storgata }: IProdu
           key={`${rambekk?.resources[3].asset_id}`}
           srcUrl={rambekk?.resources[3].secure_url}
           heading="Rambekk"
-          bodyText={textData.about.rambekkDescription}
+          bodyText={textData.about.rambekkDescriptionFrontPage}
           buttons={
             <Link
               key={`link-key-${folder?.folders[0].name}`}
@@ -90,16 +90,16 @@ export const ProductsPage = ({ folder, jettegaarden, rambekk, storgata }: IProdu
               }}
             >
               <Button variant="outline" sx={{ mr: 2 }} fontFamily={inter400.style.fontFamily}>
-                Les mer om {transformName(folder?.folders[0].name)}
+                Les mer
               </Button>
             </Link>
           }
         />
         <PropertyCard
-          key={`${storgata?.resources[6]?.asset_id}`}
-          srcUrl={storgata?.resources[6]?.secure_url}
-          heading="Storgate 24-26 AS"
-          bodyText={"Storgata 24-26 as driver utleie av p-plasser øverst i Storgata på Gjøvik."}
+          key={`${storgata?.resources[0]?.asset_id}`}
+          srcUrl={storgata?.resources[0]?.secure_url}
+          heading="Storgata 24-26 AS"
+          bodyText={textData.about.storgataImageText}
           buttons={
             <Link
               key={`link-key-${folder?.folders[0].name}`}

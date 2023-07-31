@@ -1,4 +1,4 @@
-import { Box, Heading, useMediaQuery, VStack, Text, HStack, Divider, Button } from "@chakra-ui/react"
+import { Box, Heading, useMediaQuery, Text, HStack, Divider, Button } from "@chakra-ui/react"
 import textData from "./text.json"
 import Link from "next/link"
 import Image from "next/image"
@@ -45,14 +45,15 @@ export const HistoryPage = (props: IAboutProps) => {
         </Box>
         <Box display="flex" flexDirection="column" height="full" width={"full"} p={2} mt={6}>
           <Heading size="md" fontFamily={inter.style.fontFamily}>
-            {"Mer om GS"}
+            {"Mer om Gjøvik Skofabrik"}
           </Heading>
           <Text
             noOfLines={isSmallDevice ? [5, 10] : [4]}
             textOverflow="ellipsis"
             fontFamily={inter400.style.fontFamily}
+            mt={6}
           >
-            {textData.history.chapterOne}
+            {`${textData.history.pointOne} ${textData.history.point9} ${textData.history.point10} ${textData.history.point11}`}
           </Text>
           <Link
             key={`link-key`}

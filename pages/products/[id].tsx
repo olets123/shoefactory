@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from "next"
+import { GetServerSideProps, NextPage } from "next"
 import {
   Box,
   Button,

@@ -1,13 +1,13 @@
 import { useRouter } from "next/router"
 import { GetServerSideProps, NextPage } from "next"
-import { Box, Button, Heading, Text, Stack, VStack, ListItem, UnorderedList, useMediaQuery } from "@chakra-ui/react"
+import { Box, Button, Heading, Stack, VStack, ListItem, UnorderedList, useMediaQuery } from "@chakra-ui/react"
 import { search } from "../api/cloudinary"
 import { IResource } from ".."
 import ImageGallery from "../components/ImageGallery"
 import textData from "../text.json"
 import { FaArrowLeft } from "react-icons/fa"
 import { Footer } from "../components/Footer"
-import { inter, inter400 } from "../../styles/fonts"
+import { inter } from "../../styles/fonts"
 
 interface Props {
   images: IResource
@@ -54,22 +54,19 @@ const Property: NextPage<Props> = ({ images }) => {
       <Box height="100%" p={2} mb={4}>
         <ImageGallery images={images} />
       </Box>
-      <Box m={2} width={isSmallDevice ? 800 : "100%"}>
-        <Box m={2} pb={2}>
-          <Text fontFamily={inter400.style.fontFamily}>{textData.history.chapterOne}</Text>
-        </Box>
-        <Box m={2} pb={2}>
-          <Text fontFamily={inter400.style.fontFamily}>{textData.history.chapterTwo}</Text>
-        </Box>
-        <Box m={2} pb={2}>
-          <Text fontFamily={inter400.style.fontFamily}>{textData.history.chapterThree}</Text>
-        </Box>
-      </Box>
       <Box m={2} p={2} width={isSmallDevice ? 800 : "100%"}>
         <UnorderedList spacing={3} p={2}>
           <ListItem>{textData.history.pointOne}</ListItem>
           <ListItem>{textData.history.pointTwo}</ListItem>
-          <ListItem>{textData.history.pontThree}</ListItem>
+          <ListItem>{textData.history.pointThree}</ListItem>
+          <ListItem>{textData.history.pointFour}</ListItem>
+          <ListItem>{textData.history.pointFive}</ListItem>
+          <ListItem>{textData.history.point6}</ListItem>
+          <ListItem>{textData.history.point7}</ListItem>
+          <ListItem>{textData.history.point8}</ListItem>
+          <ListItem>{textData.history.point9}</ListItem>
+          <ListItem>{textData.history.point10}</ListItem>
+          <ListItem>{textData.history.point11}</ListItem>
         </UnorderedList>
       </Box>
 
