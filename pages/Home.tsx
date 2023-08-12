@@ -37,9 +37,11 @@ export const HomePage = (props: HomePageProps) => {
             src={props.frontPageImages?.resources[0]?.secure_url}
             alt="Cartoon graduates jump with happiness"
             quality="100"
+            placeholder="blur"
+            blurDataURL={
+              "https://res.cloudinary.com/dipbf01bb/image/upload/v1689961710/shoefactory/frontpage/lute-YZNoGvsi5E8-unsplash_nzppq5.jpg"
+            }
             priority
-            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            // style={{ zIndex: -999 }}
             sizes="100vw"
             style={imageStyle}
             width={props.frontPageImages?.resources[0]?.width}
