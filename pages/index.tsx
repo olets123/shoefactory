@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react"
+import { Spinner, VStack } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
 import { HistoryPage } from "./History"
 import { folders, search } from "./api/cloudinary"
@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer"
 import { HomePage } from "./Home"
 import { ProductsPage } from "./Products"
 import { AboutUsPage } from "./AboutUs"
+import { Suspense } from "react"
 
 export interface IResource {
   resources: IAsset[]
@@ -46,6 +47,32 @@ export interface IHomeProps {
   folder: Folder
 }
 
+export const Home = ({ jettegaarden, rambekk, history, storgata, folder, frontPageImages }: IHomeProps) => {
+  return (
+    <Suspense fallback={<Spinner size="xl" />}>
+      <VStack display="flex" height="100%">
+        <VStack height={"100vh"} display="flex">
+          <HomePage frontPageImages={frontPageImages} />
+        </VStack>
+        <VStack height={"100%"} display="flex">
+          <AboutUsPage />
+        </VStack>
+        <VStack height={"100vh"} display="flex">
+          <HistoryPage history={history} />
+        </VStack>
+        <VStack height={"100%"}>
+          <ProductsPage jettegaarden={jettegaarden} rambekk={rambekk} storgata={storgata} folder={folder} />
+        </VStack>
+        <VStack position="relative" bottom={0} width="100%" height="100%">
+          <Footer />
+        </VStack>
+      </VStack>
+    </Suspense>
+  )
+}
+
+export default Home
+
 export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
   const imageFolders = await folders()
   const rambekkImgs = await search({
@@ -78,27 +105,3 @@ export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
     },
   }
 }
-
-export const Home = ({ jettegaarden, rambekk, history, storgata, folder, frontPageImages }: IHomeProps) => {
-  return (
-    <VStack display="flex" height="100%">
-      <VStack height={"100vh"} display="flex">
-        <HomePage frontPageImages={frontPageImages} />
-      </VStack>
-      <VStack height={"100%"} display="flex">
-        <AboutUsPage />
-      </VStack>
-      <VStack height={"100vh"} display="flex">
-        <HistoryPage history={history} />
-      </VStack>
-      <VStack height={"100%"}>
-        <ProductsPage jettegaarden={jettegaarden} rambekk={rambekk} storgata={storgata} folder={folder} />
-      </VStack>
-      <VStack position="relative" bottom={0} width="100%" height="100%">
-        <Footer />
-      </VStack>
-    </VStack>
-  )
-}
-
-export default Home

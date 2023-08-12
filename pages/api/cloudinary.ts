@@ -1,6 +1,10 @@
 import axios from "axios"
 import { Folder, IResource } from ".."
 
+export type Expression = {
+  expression: string
+}
+
 export const appClient = axios.create({
     baseURL: `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}`,
     headers: {
@@ -27,7 +31,7 @@ export const currentFolder = async () => {
     return response.data
 }
 
-export async function search(options = {}): Promise<IResource> {
+export async function search(options: Expression): Promise<IResource> {
     const params: any = {
       ...options
     }

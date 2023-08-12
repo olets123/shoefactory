@@ -6,6 +6,7 @@ import {
   Heading,
   HStack,
   ListItem,
+  Spinner,
   Stack,
   Text,
   UnorderedList,
@@ -22,6 +23,7 @@ import { FaArrowLeft } from "react-icons/fa"
 import textData from "../text.json"
 import { GrLocation } from "react-icons/gr"
 import { inter, inter400 } from "../../styles/fonts"
+import { Suspense } from "react"
 
 interface Props {
   images: IResource
@@ -51,70 +53,72 @@ const Property: NextPage<Props> = ({ images }) => {
 
   return (
     <Layout>
-      <VStack h={"full"} m={2} pt={2}>
-        <Stack direction="row" width="100%" justifyContent="flex-start" alignItems="flex-start" h={50} ml={4}>
-          <Box display="flex" justifyContent="flex-start" ml={2} mt={2}>
-            <Button
-              variant="ghost"
-              bgColor="whiteAlpha.900"
-              color="blackAlpha.900"
-              leftIcon={<FaArrowLeft />}
-              w={30}
-              size="xs"
-              onClick={() => router.push("/")}
-            />
-          </Box>
-          <Heading width="100%" fontFamily={"'Albert Sans', sans-serif"}>
-            Leie av {transformName(name)}
-          </Heading>
-        </Stack>
-        <Box height="full%" p={2} m={2}>
-          <ImageGallery images={images} />
-        </Box>
-        <Box m={2} width={isSmallDevice ? 800 : "100%"}>
-          <Box m={2} p={2}>
-            <Heading size="sm" fontFamily={inter.style.fontFamily} mt={2} mb={2}>
-              Kort om {transformName(name)}
+      <Suspense fallback={<Spinner size="xl" />}>
+        <VStack h={"full"} m={2} pt={2}>
+          <Stack direction="row" width="100%" justifyContent="flex-start" alignItems="flex-start" h={50} ml={4}>
+            <Box display="flex" justifyContent="flex-start" ml={2} mt={2}>
+              <Button
+                variant="ghost"
+                bgColor="whiteAlpha.900"
+                color="blackAlpha.900"
+                leftIcon={<FaArrowLeft />}
+                w={30}
+                size="xs"
+                onClick={() => router.back()}
+              />
+            </Box>
+            <Heading width="100%" fontFamily={"'Albert Sans', sans-serif"}>
+              Leie av {transformName(name)}
             </Heading>
-            {dynamicId === ProductsName.Storgata ? (
-              <UnorderedList spacing={3} mt={6} mb={6}>
-                <ListItem>{"Storgata 24-26 as driver utleie av p-plasser øverst i Storgata på Gjøvik."}</ListItem>
-                <ListItem>{"Det er forretningsvirksomhet i butikklokalene mot Storgata"}</ListItem>
-                <ListItem>{"Storgata 24-26 AS eies 100% av AS Gjøvik Skofabrik."}</ListItem>
-              </UnorderedList>
-            ) : null}
-            <Text fontFamily={inter400.style.fontFamily}>
-              {dynamicId === ProductsName.Jettegården ? (
-                <>{textData.about.jetteGardDescription}</>
-              ) : dynamicId === ProductsName.Rambekk ? (
-                <>{textData.about.rambekkDescription}</>
-              ) : dynamicId === ProductsName.Storgata ? (
-                <>{textData.about.storgataDescription}</>
+          </Stack>
+          <Box height="full%" p={2} m={2}>
+            <ImageGallery images={images} />
+          </Box>
+          <Box m={2} width={isSmallDevice ? 800 : "100%"}>
+            <Box m={2} p={2}>
+              <Heading size="sm" fontFamily={inter.style.fontFamily} mt={2} mb={2}>
+                Kort om {transformName(name)}
+              </Heading>
+              {dynamicId === ProductsName.Storgata ? (
+                <UnorderedList spacing={3} mt={6} mb={6}>
+                  <ListItem>{"Storgata 24-26 as driver utleie av p-plasser øverst i Storgata på Gjøvik."}</ListItem>
+                  <ListItem>{"Det er forretningsvirksomhet i butikklokalene mot Storgata"}</ListItem>
+                  <ListItem>{"Storgata 24-26 AS eies 100% av AS Gjøvik Skofabrik."}</ListItem>
+                </UnorderedList>
               ) : null}
-            </Text>
-          </Box>
-          <Box display="flex" flexDirection="column" w="full" m={2} p={2}>
-            <Heading size="sm" fontFamily={inter400.style.fontFamily} mt={2} mb={2}>
-              Nøkkelinfo:
-            </Heading>
-            <HStack>
-              <GrLocation />
               <Text fontFamily={inter400.style.fontFamily}>
                 {dynamicId === ProductsName.Jettegården ? (
-                  <>{textData.about.jetteGaardAddress}</>
+                  <>{textData.about.jetteGardDescription}</>
                 ) : dynamicId === ProductsName.Rambekk ? (
-                  <>{textData.about.rambekkAddress}</>
+                  <>{textData.about.rambekkDescription}</>
                 ) : dynamicId === ProductsName.Storgata ? (
-                  <>{textData.about.storgataAdress}</>
+                  <>{textData.about.storgataDescription}</>
                 ) : null}
               </Text>
-            </HStack>
+            </Box>
+            <Box display="flex" flexDirection="column" w="full" m={2} p={2}>
+              <Heading size="sm" fontFamily={inter400.style.fontFamily} mt={2} mb={2}>
+                Nøkkelinfo:
+              </Heading>
+              <HStack>
+                <GrLocation />
+                <Text fontFamily={inter400.style.fontFamily}>
+                  {dynamicId === ProductsName.Jettegården ? (
+                    <>{textData.about.jetteGaardAddress}</>
+                  ) : dynamicId === ProductsName.Rambekk ? (
+                    <>{textData.about.rambekkAddress}</>
+                  ) : dynamicId === ProductsName.Storgata ? (
+                    <>{textData.about.storgataAdress}</>
+                  ) : null}
+                </Text>
+              </HStack>
+            </Box>
           </Box>
-        </Box>
-      </VStack>
-      <VStack display="flex" width="100%" justifyContent="center" alignItems="flex-end">
-        <Footer />
-      </VStack>
+        </VStack>
+        <VStack display="flex" width="100%" justifyContent="center" alignItems="flex-end">
+          <Footer />
+        </VStack>
+      </Suspense>
     </Layout>
   )
 }

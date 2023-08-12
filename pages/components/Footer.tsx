@@ -11,7 +11,6 @@ export const Footer = () => {
       <HStack w="full" mb={6}>
         <Divider variant="solid" orientation="horizontal" size="md" borderWidth="1px" borderColor="blackAlpha.200" />
       </HStack>
-
       <Box display="flex" justifyContent="center" alignItems="center">
         <Box display="flex" flexDirection={isSmallDevice ? "row" : "column"} width="100%" justifyContent="center">
           <HStack mr={4}>
