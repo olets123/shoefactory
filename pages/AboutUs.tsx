@@ -32,7 +32,7 @@ export const AboutUsPage = () => {
           sx={{ mb: 8, mt: 8 }}
         >
           <Text textOverflow="ellipsis" fontFamily={inter400.style.fontFamily}>
-            {textData.aboutUs.descripotion}
+            {textData.aboutUs.description}
           </Text>
         </Box>
       </Box>

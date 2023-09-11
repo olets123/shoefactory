@@ -15,18 +15,26 @@ export const ImageGallery = ({ images }: Props) => {
     <Box display="flex" justifyContent="center" alignItems="center">
       <Carousel
         showThumbs={false}
+        dynamicHeight
         width={isSmallDevice ? 800 : "100%"}
         showArrows
         swipeable
         axis="horizontal"
         showIndicators={false}
       >
-        {images &&
-          images.resources.map((p) => (
-            <div key={p.asset_id}>
-              <Image src={p.secure_url} alt="img" height={p.height} width={p.width} />
-            </div>
-          ))}
+        {images
+          ? images.resources.map((p) => (
+              <div key={p.asset_id}>
+                <Image
+                  src={p.secure_url}
+                  alt="img"
+                  height={p.height ?? "auto"}
+                  width={p.width ?? "auto"}
+                  loading="lazy"
+                />
+              </div>
+            ))
+          : []}
       </Carousel>
     </Box>
   )

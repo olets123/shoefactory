@@ -3,7 +3,10 @@ import Image from "next/image"
 import { CSSProperties, Suspense } from "react"
 import { IResource } from "."
 import { inter, inter400 } from "../styles/fonts"
-import { onClickScroll } from "./components/Header"
+import { SFCLargeButton } from "./reusables/Button"
+import { onClickScroll } from "./reusables/Header"
+import { SFCHeadingLarge } from "./reusables/Heading"
+import { SFCTextParagraph } from "./reusables/TextParagraph"
 
 interface HomePageProps {
   frontPageImages: IResource
@@ -11,6 +14,9 @@ interface HomePageProps {
 
 export const HomePage = (props: HomePageProps) => {
   const [isSmallDevice] = useMediaQuery("(min-width: 800px)")
+  const blurDataUrl =
+    "https://res.cloudinary.com/dipbf01bb/image/upload/v1689961710/shoefactory/frontpage/lute-YZNoGvsi5E8-unsplash_nzppq5.jpg"
+
   const imageStyle: CSSProperties = {
     objectFit: "cover",
     height: "100vh",
@@ -21,6 +27,7 @@ export const HomePage = (props: HomePageProps) => {
     zIndex: -999,
     opacity: 0.4,
   }
+
   return (
     <Suspense fallback={<Spinner size="xl" />}>
       <Box display="flex" flex={1} w="full" justifyContent="center" alignItems="center">
@@ -39,62 +46,26 @@ export const HomePage = (props: HomePageProps) => {
               alt="Cartoon graduates jump with happiness"
               quality="100"
               placeholder="blur"
-              blurDataURL={
-                "https://res.cloudinary.com/dipbf01bb/image/upload/v1689961710/shoefactory/frontpage/lute-YZNoGvsi5E8-unsplash_nzppq5.jpg"
-              }
+              blurDataURL={blurDataUrl}
               priority
               sizes="100vw"
               style={imageStyle}
               width={props.frontPageImages?.resources[0]?.width}
               height={props.frontPageImages?.resources[0]?.height}
             />
-            <Heading
-              as="h1"
-              size="4xl"
-              color="gray.900"
-              textAlign="justify"
-              fontFamily={inter.style.fontFamily}
-              textTransform="uppercase"
-              fontWeight={"extrabold"}
-              fontStyle={inter.style.fontStyle}
+            <SFCHeadingLarge
               onClick={() => onClickScroll("home")}
               inlineSize={isSmallDevice ? "max-content" : "min-content"}
-              overflowWrap="break-word"
-            >
-              Gjøvik skofabrik
-            </Heading>
+              heading={"Gjøvik skofabrik"}
+            />
           </Box>
           <Box display="flex" flexDirection="column" justifyContent="center" width="100%" pb={8}>
-            <Text as="p" fontSize="md" fontFamily={inter400.style.fontFamily} mt={2} textAlign="center">
-              {"Leie av næringslokaler på Gjøvik?"}
-            </Text>
-            <Text as="p" fontSize="md" fontFamily={inter400.style.fontFamily} mt={2} textAlign="center">
-              {"Da har vi løsningen for deg!"}
-            </Text>
+            <SFCTextParagraph text={"Leie av næringslokaler på Gjøvik?"} />
+            <SFCTextParagraph text={"Da har vi løsningen for deg!"} />
           </Box>
           <Box height="full" width="full" p={2} display="flex" justifyContent="center" flexDirection={"row"}>
-            <Button
-              bgColor="blackAlpha.900"
-              color="whiteAlpha.900"
-              variant="solid"
-              size="lg"
-              sx={{ mr: 2, mb: 2 }}
-              onClick={() => onClickScroll("about")}
-              fontFamily={inter400.style.fontFamily}
-            >
-              Om oss
-            </Button>
-            <Button
-              variant="solid"
-              bgColor="blackAlpha.900"
-              color="whiteAlpha.900"
-              size="lg"
-              sx={{ mr: 2, mb: 2 }}
-              fontFamily={inter400.style.fontFamily}
-              onClick={() => onClickScroll("products")}
-            >
-              Eiendommer
-            </Button>
+            <SFCLargeButton onClick={() => onClickScroll("about")} text={"Om oss"} />
+            <SFCLargeButton onClick={() => onClickScroll("about")} text={"Eiendommer"} />
           </Box>
         </VStack>
       </Box>

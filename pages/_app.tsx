@@ -22,8 +22,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Layout>
         {isLoading ? (
-          <Box display="flex" w="100%" h="100%">
-            <Box display="flex" justifyContent="center" alignItems="flex-end" width="100%" height="100%">
+          <Box display="flex" width="100%" height={500}>
+            <Box display="flex" flex={1} justifyContent="center" alignItems="flex-end" width="100%" height="100%">
               <CircularProgress isIndeterminate color="gray" size="150px" thickness="8px" />
             </Box>
           </Box>

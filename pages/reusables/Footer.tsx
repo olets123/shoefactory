@@ -2,6 +2,7 @@ import { Box, Button, Divider, HStack, Text, useMediaQuery, VStack } from "@chak
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope } from "react-icons/fa"
 import { GrLocation } from "react-icons/gr"
 import { inter400 } from "../../styles/fonts"
+import { SFCSmallButton } from "./Button"
 
 export const Footer = () => {
   const [isSmallDevice] = useMediaQuery("(min-width: 800px)")
@@ -28,24 +29,16 @@ export const Footer = () => {
         </Box>
       </Box>
       <HStack>
-        <Button
-          size={"sm"}
-          variant="ghost"
+        <SFCSmallButton
           leftIcon={<FaFacebook />}
-          fontFamily={inter400.style.fontFamily}
           onClick={() => window.open("https://www.facebook.com/Gjovik.Skofabrik", "_blank")}
-        >
-          Facebook
-        </Button>
-        <Button
-          variant="ghost"
-          size={"sm"}
-          fontFamily={inter400.style.fontFamily}
+          text="Facebook"
+        />
+        <SFCSmallButton
           leftIcon={<FaInstagram />}
           onClick={() => window.open("https://www.instagram.com/gjovikskofabrik/", "_blank")}
-        >
-          Instagram
-        </Button>
+          text="Instagram"
+        />
       </HStack>
       <Text fontFamily={inter400.style.fontFamily} fontSize={12} color="gray.600">
         &copy; 2023 - made by @skogli20{" "}

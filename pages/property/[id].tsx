@@ -15,15 +15,16 @@ import {
 } from "@chakra-ui/react"
 import { search } from "../api/cloudinary"
 import { IResource } from ".."
-import { ProductsName, transformName } from "../Products"
-import ImageGallery from "../components/ImageGallery"
+import { ProductsName, transformName } from "../Properties"
+import ImageGallery from "../reusables/ImageGallery"
 import Layout from "../Layout"
-import { Footer } from "../components/Footer"
+import { Footer } from "../reusables/Footer"
 import { FaArrowLeft } from "react-icons/fa"
 import textData from "../text.json"
 import { GrLocation } from "react-icons/gr"
 import { inter, inter400 } from "../../styles/fonts"
 import { Suspense } from "react"
+import { SFCHeadingSmall } from "../reusables/Heading"
 
 interface Props {
   images: IResource
@@ -67,7 +68,7 @@ const Property: NextPage<Props> = ({ images }) => {
                 onClick={() => router.back()}
               />
             </Box>
-            <Heading width="100%" fontFamily={"'Albert Sans', sans-serif"}>
+            <Heading width="100%" fontFamily={inter.style.fontFamily}>
               Leie av {transformName(name)}
             </Heading>
           </Stack>
@@ -76,9 +77,12 @@ const Property: NextPage<Props> = ({ images }) => {
           </Box>
           <Box m={2} width={isSmallDevice ? 800 : "100%"}>
             <Box m={2} p={2}>
-              <Heading size="sm" fontFamily={inter.style.fontFamily} mt={2} mb={2}>
-                Kort om {transformName(name)}
-              </Heading>
+              <SFCHeadingSmall
+                fontFamily={inter.style.fontFamily}
+                mt={2}
+                mb={2}
+                heading={` Kort om ${transformName(name)}`}
+              />
               {dynamicId === ProductsName.Storgata ? (
                 <UnorderedList spacing={3} mt={6} mb={6}>
                   <ListItem>{"Storgata 24-26 as driver utleie av p-plasser øverst i Storgata på Gjøvik."}</ListItem>
@@ -97,9 +101,7 @@ const Property: NextPage<Props> = ({ images }) => {
               </Text>
             </Box>
             <Box display="flex" flexDirection="column" w="full" m={2} p={2}>
-              <Heading size="sm" fontFamily={inter400.style.fontFamily} mt={2} mb={2}>
-                Nøkkelinfo:
-              </Heading>
+              <SFCHeadingSmall heading="Nøkkelinfo:" fontFamily={inter400.style.fontFamily} mt={2} mb={2} />
               <HStack>
                 <GrLocation />
                 <Text fontFamily={inter400.style.fontFamily}>

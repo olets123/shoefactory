@@ -1,4 +1,5 @@
 import { Box, Heading } from "@chakra-ui/react"
+import { SFCHeadingMedium } from "./Heading"
 
 export const HeaderLinkNames = {
   Home: "home",
@@ -28,16 +29,7 @@ export const Header = () => {
       pb={2}
       sx={{ position: "fixed", top: 0, zIndex: 999 }}
     >
-      <Heading
-        as="h2"
-        size="2xl"
-        noOfLines={1}
-        color="gray.900"
-        fontFamily={"'Albert Sans', serif"}
-        onClick={() => onClickScroll("home")}
-      >
-        Gjøvik skofabrikk
-      </Heading>
+      <SFCHeadingMedium onClick={() => onClickScroll("home")} heading="Gjøvik skofabrikk" />
     </Box>
   )
 }

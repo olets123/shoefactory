@@ -1,17 +1,10 @@
-import { VStack } from "@chakra-ui/react"
-import { Header } from "./components/Header"
-import { Main } from "./components/Main"
+import { Main } from "./reusables/Main"
 
 export type LayoutProps = {
   children: React.ReactNode
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  return (
-    <VStack display="flex" flexDirection="column" h="full" w="full">
-      {/* <Header /> */}
-      <Main>{children}</Main>
-    </VStack>
-  )
+  return <Main>{children}</Main>
 }
 export default Layout

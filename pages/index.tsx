@@ -2,9 +2,9 @@ import { Spinner, VStack } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
 import { HistoryPage } from "./History"
 import { folders, search } from "./api/cloudinary"
-import { Footer } from "./components/Footer"
+import { Footer } from "./reusables/Footer"
 import { HomePage } from "./Home"
-import { ProductsPage } from "./Products"
+import { PropertyPage } from "./Properties"
 import { AboutUsPage } from "./AboutUs"
 import { Suspense } from "react"
 
@@ -61,7 +61,7 @@ export const Home = ({ jettegaarden, rambekk, history, storgata, folder, frontPa
           <HistoryPage history={history} />
         </VStack>
         <VStack height={"100%"}>
-          <ProductsPage jettegaarden={jettegaarden} rambekk={rambekk} storgata={storgata} folder={folder} />
+          <PropertyPage jettegaarden={jettegaarden} rambekk={rambekk} storgata={storgata} folder={folder} />
         </VStack>
         <VStack position="relative" bottom={0} width="100%" height="100%">
           <Footer />
