@@ -1,5 +1,5 @@
-import { Box, Heading } from "@chakra-ui/react"
-import { SFCHeadingMedium } from "./Heading"
+import { Box } from "@chakra-ui/react"
+import { SFCHeadingMedium } from "./HeadingMedium"
 
 export const HeaderLinkNames = {
   Home: "home",

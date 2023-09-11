@@ -1,11 +1,11 @@
-import { Box, Button, Divider, Heading, HStack, Spinner, useMediaQuery } from "@chakra-ui/react"
+import { Box, Button, Divider, HStack, Spinner, useMediaQuery } from "@chakra-ui/react"
 import Link from "next/link"
 import { Folder, IResource } from "."
 import { PropertyCard } from "./reusables/PropertyCard"
 import textData from "./text.json"
-import { inter, inter400 } from "../styles/fonts"
+import { inter400 } from "../styles/fonts"
 import { Suspense } from "react"
-import { SFCHeadingMedium } from "./reusables/Heading"
+import { SFCHeadingMedium } from "./reusables/HeadingMedium"
 
 export const ProductsName = {
   Rambekk: "building1",

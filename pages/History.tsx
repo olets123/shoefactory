@@ -1,11 +1,12 @@
-import { Box, Heading, useMediaQuery, Text, HStack, Divider, Button, Spinner } from "@chakra-ui/react"
+import { Box, useMediaQuery, Text, HStack, Divider, Button, Spinner } from "@chakra-ui/react"
 import textData from "./text.json"
 import Link from "next/link"
 import Image from "next/image"
 import { IResource } from "."
-import { inter, inter400 } from "../styles/fonts"
+import { inter400 } from "../styles/fonts"
 import { Suspense } from "react"
-import { SFCHeadingMedium, SFCHeadingSmall } from "./reusables/Heading"
+import { SFCHeadingMedium } from "./reusables/HeadingMedium"
+import { SFCHeadingSmall } from "./reusables/HeadingSmall"
 
 export interface IAboutProps {
   history: IResource

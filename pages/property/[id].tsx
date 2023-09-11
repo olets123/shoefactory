@@ -24,7 +24,7 @@ import textData from "../text.json"
 import { GrLocation } from "react-icons/gr"
 import { inter, inter400 } from "../../styles/fonts"
 import { Suspense } from "react"
-import { SFCHeadingSmall } from "../reusables/Heading"
+import { SFCHeadingSmall } from "../reusables/HeadingSmall"
 
 interface Props {
   images: IResource

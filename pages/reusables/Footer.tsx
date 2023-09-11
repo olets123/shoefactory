@@ -2,7 +2,7 @@ import { Box, Button, Divider, HStack, Text, useMediaQuery, VStack } from "@chak
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope } from "react-icons/fa"
 import { GrLocation } from "react-icons/gr"
 import { inter400 } from "../../styles/fonts"
-import { SFCSmallButton } from "./Button"
+import { SFCSmallButton } from "./SFCSmallButton"
 
 export const Footer = () => {
   const [isSmallDevice] = useMediaQuery("(min-width: 800px)")

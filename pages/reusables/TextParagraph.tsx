@@ -12,3 +12,4 @@ export const SFCTextParagraph = (props: TextProps) => {
     </Text>
   )
 }
+export default SFCTextParagraph
