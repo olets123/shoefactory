@@ -23,3 +23,4 @@ export const SFCHeadingLarge = (props: SFCHeadingProps) => {
     </Heading>
   )
 }
+export default SFCHeadingLarge
